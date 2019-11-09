@@ -3,11 +3,11 @@
 isPartTime=1;
 isFullTime=2;
 empRateHour=2000;
-random=$(( RANDOM%3 ));
-if [ $isFullTime -eq $random ]; then
+empChk=$(( RANDOM%3 ));
+if [ $isFullTime -eq $empChk ]; then
 	echo "present"
 	empHrs=8;
-elif [ $isPartTime -eq $random ]; then
+elif [ $isPartTime -eq $empChk ]; then
 	echo "part Time"
 	empHrs=4;
 else
