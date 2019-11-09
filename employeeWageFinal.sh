@@ -5,6 +5,7 @@ isFullTime=2;
 empRateHour=2000;
 random=$(( RANDOM%3 ));
 if [ $isFullTime -eq $random ]; then
+	echo "present"
 	empHrs=8;
 elif [ $isPartTime -eq $random ]; then
 	empHrs=4;
