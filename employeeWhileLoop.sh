@@ -3,6 +3,7 @@
 valid=true
 isFullTime=1;
 isPartTime=2;
+empRateHrs=20;
 while [ $valid ]
 do
 	random=$(( RANDOM%3 ));
@@ -14,8 +15,9 @@ do
 		*)
 		empHrs=0;;
 	esac
+	salary=$(( $empHrs*$empRateHrs ))
 	TotalHrs=$(( $TotalHrs+$empHrs ))
-	if [ $TotalHrs -le 50 ]
+	if [ $TotalHrs -ge 50 ]
 	then
 		break
 	fi
