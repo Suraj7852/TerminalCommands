@@ -7,10 +7,6 @@ random=$(( RANDOM%3 ));
 if [ $isFullTime -eq $random ]; then
 	echo "present"
 	empHrs=8;
-elif [ $isPartTime -eq $random ]; then
-	empHrs=4;
-else
-	empHrs=0;
 fi
 
 salary=$(( $empHrs*$empRateHour ))
