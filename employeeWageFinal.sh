@@ -1,5 +1,5 @@
 #!/bin/bash -x
-
+# comment added by Prayas
 isPartTime=1;
 isFullTime=2;
 empRateHour=2000;
