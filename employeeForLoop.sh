@@ -4,8 +4,8 @@ isPartTime=2;
 empRateHour=20;
 for (( counter=1; counter<=20; counter++ ))
 do
-	random=$(( RANDOM%3 ));
-	case $random in
+	empChk=$(( RANDOM%3 ));
+	case $empChk in
 		$isFullTime)
 		empHrs=8;;
 		$isPartTime)
