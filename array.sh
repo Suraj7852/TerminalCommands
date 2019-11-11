@@ -3,7 +3,8 @@
 isFullTime=1;
 isPartTime=2;
 empRateHour=20;
-counter=0;
+arrayCount=1;
+declare -A Wages
 
 function dailyHrs() {
 	case $1 in
@@ -24,13 +25,17 @@ function wages() {
 
 for (( counter=1; counter<=20; counter++ ))
 do
-	result="$( dailyHrs $(( RANDOM%3 )) )"
-	TotalWorkHr=$(( $TotalWorkHr + $result ))
-	wage="$( wages $(( $TotalWorkHr )) )"
+	workHr="$( dailyHrs $(( RANDOM%3 )) )"
+	#TotalWorkHr=$(( $TotalWorkHr + $workHr ))
+	wage="$( wages $(( $workHr )) )"
 	TotalWage=$(( $TotalWage+$wage ))
-	Wages[(( counter++ ))]=$wage
+	Wages["$counter"]=$wage
+	#echo counter
 done
-Wages[(( counter++ ))]=$TotalWage
+Wages[TotalSalary]=$TotalWage
 
 echo ${Wages[@]}
-echo $TotalWage
+#echo $TotalWage
+echo ${!Wages[@]}
+#echo ${Wages[5]}
+echo "TotalSalary" ${Wages[TotalSalary]}
