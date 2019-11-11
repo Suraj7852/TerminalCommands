@@ -1,18 +1,11 @@
 #!/bin/bash -x
 
-function myfunc() {
-	echo $1
-}
-
-result="$( myfunc $(( RANDOM%3 )) )"
 isFullTime=1;
 isPartTime=2;
 empRateHrs=20;
-valid=true
-for (( counter=1; counter<=20; counter++ ))
-do
-	result=$( myfunc $(( RANDOM%3 )) )
-	case $result in
+function myfunc() {
+	echo $1
+	case $1 in
 		$isFullTime)
 		empHrs=8;;
 		$isPartTime)
@@ -20,6 +13,11 @@ do
 		*)
 		empHrs=0;;
 	esac
-	TotalHrs=$(( $empHrs+$empRateHrs ))
+TotalHrs=$(( $empHrs+$empRateHrs ))
+}
+
+for (( counter=1; counter<=20; counter++ ))
+do
+	result=$( myfunc $(( RANDOM%3 )) )
 done
 
